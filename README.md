@@ -2,7 +2,7 @@
 
 ## Dev
 
-1. Clonar el repositorio
+1. Clonar el repositorios
 2. Crear un .env basado en el .env.Template
 3. Ejecutar el comando `docker compose up --build`
 
