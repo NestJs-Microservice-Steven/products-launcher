@@ -12,7 +12,7 @@ services:
     build: 
       context: ./client-gateway
       dockerfile: dockerfile.prod
-    image: client-gate-way-prodx
+    image: northamerica-northeast1-docker.pkg.dev/tienda-microservices-425614/image-registry/client-gateway
     ports:
       - ${CLIENT_GATEWAY_PORT}:${CLIENT_GATEWAY_PORT}
     environment:
@@ -23,7 +23,7 @@ services:
     build:
       context: ./auth-ms
       dockerfile: dockerfile.prod
-    image: auth-ms-prod
+    image: northamerica-northeast1-docker.pkg.dev/tienda-microservices-425614/image-registry/auth-ms
     environment:
       - PORT=3000
       - NATS_SERVERS=nats://nats-server:4222
@@ -34,7 +34,7 @@ services:
     build:  
       context: ./products-ms
       dockerfile: dockerfile.prod
-    image: products-ms-prod
+    image: northamerica-northeast1-docker.pkg.dev/tienda-microservices-425614/image-registry/products-ms
     environment:
       - PORT=3001
       - NATS_SERVERS=nats://nats-server:4222
@@ -46,11 +46,11 @@ services:
       context: ./orders-ms
       dockerfile: dockerfile.prod
       args:
-        - ORDERS_DATABASE_URL=${ORDERS_MS_PROD_DB}
+        - ORDERS_DATABASE_URL=${ORDERS_DATABASE_URL}
     image:  orders-ms-prod
     environment:
       - PORT=3003
-      - DATABASE_URL=${ORDERS_MS_PROD_DB}
+      - DATABASE_URL=${ORDERS_DATABASE_URL}
       - NATS_SERVERS=nats://nats-server:4222
 
 
