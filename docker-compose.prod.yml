@@ -43,19 +43,15 @@ services:
 
   orders-ms:
     build: 
-      context: ./orders-ms
+      context: northamerica-northeast1-docker.pkg.dev/tienda-microservices-425614/image-registry/products-ms/orders-ms
       dockerfile: dockerfile.prod
       args:
         - ORDERS_DATABASE_URL=${ORDERS_DATABASE_URL}
-    image:  orders-ms-prod
+    image: orders-ms
     environment:
-      - PORT=3003
+      - PORT=3000
       - DATABASE_URL=${ORDERS_DATABASE_URL}
       - NATS_SERVERS=nats://nats-server:4222
-
-
-
-
 
 
 #   orders-db:
@@ -79,7 +75,7 @@ services:
     build: 
       context: ./payments-ms
       dockerfile: dockerfile.prod
-    image: payments-ms-prod
+    image: northamerica-northeast1-docker.pkg.dev/tienda-microservices-425614/image-registry/products-ms/payments-ms
     ports:
       - ${PAYMENTS_MS_PORT}:${PAYMENTS_MS_PORT}
     environment:
