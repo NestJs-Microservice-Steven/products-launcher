@@ -43,7 +43,7 @@ services:
 
   orders-ms:
     build: 
-      context: northamerica-northeast1-docker.pkg.dev/tienda-microservices-425614/image-registry/products-ms/orders-ms
+      context: northamerica-northeast1-docker.pkg.dev/tienda-microservices-425614/image-registry/orders-ms
       dockerfile: dockerfile.prod
       args:
         - ORDERS_DATABASE_URL=${ORDERS_DATABASE_URL}
